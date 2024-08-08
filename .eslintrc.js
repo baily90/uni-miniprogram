@@ -17,6 +17,11 @@ module.exports = {
   plugins: [
     'vue'
   ],
+  globals: {
+    uni: true
+  },
   rules: {
+    'no-new': 0,
+    'vue/multi-word-component-names': 0
   }
 }

@@ -1,7 +1,10 @@
 <script>
+import { addRequestInterceptor, addRouterInterceptor } from '@/utils/interceptor'
 export default {
   onLaunch: function () {
     console.log('App Launch')
+    addRequestInterceptor()
+    addRouterInterceptor()
   },
   onShow: function () {
     console.log('App Show')
@@ -12,6 +15,7 @@ export default {
 }
 </script>
 
-<style>
-/*每个页面公共css */
+<style lang="scss">
+@import '@climblee/uv-ui/theme.scss';
+@import '@climblee/uv-ui/index.scss';
 </style>
