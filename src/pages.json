@@ -5,18 +5,39 @@
 			"^uv-(.*)": "@climblee/uv-ui/components/uv-$1/uv-$1.vue"
 		}
 	},
+	"tabBar": {
+		"selectedColor": "#07B4F0",
+		"list": [{
+			"pagePath": "pages/home/index",
+			"iconPath": "static/image/icon_tab_home_inactive.png",
+			"selectedIconPath": "static/image/icon_tab_home_active.png",
+			"text": "首页"
+		}, {
+			"pagePath": "pages/user/index",
+			"iconPath": "static/image/icon_tab_user_inactive.png",
+			"selectedIconPath": "static/image/icon_tab_user_active.png",
+			"text": "个人中心"
+		}]
+	},
 	"pages": [
 		{
-			"path": "pages/index/index",
+			"path": "pages/home/index",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationStyle": "custom"
 			}
+		},
+		{
+			"path": "pages/user/index"
+		},
+		{
+			"path": "pages/index/index"
 		}
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"backgroundColor": "#F8F8F8",
+		"backgroundColorTop":"#FFFFFF"
 	}
 }

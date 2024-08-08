@@ -48,7 +48,7 @@ const requestInterceptor = {
 const whiteList = [
   '/', // 注意入口页必须直接写 '/'
   { pattern: /^\/pages\/list.*/ }, // 支持正则表达式
-  '/pages/grid/grid',
+  '/pages/index/index',
   { pattern: /^\/pages\/login\/*/ }
 ]
 // 路由拦截器
