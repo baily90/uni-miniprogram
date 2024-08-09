@@ -7,6 +7,7 @@
 	},
 	"tabBar": {
 		"selectedColor": "#07B4F0",
+		"borderStyle": "white",
 		"list": [{
 			"pagePath": "pages/home/index",
 			"iconPath": "static/image/icon_tab_home_inactive.png",
@@ -27,7 +28,10 @@
 			}
 		},
 		{
-			"path": "pages/user/index"
+			"path": "pages/user/index",
+			"style": {
+				"navigationBarTitleText": "个人中心"
+			}
 		},
 		{
 			"path": "pages/index/index"
@@ -36,8 +40,8 @@
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
+		"navigationBarBackgroundColor": "#FFFFFF",
 		"backgroundColor": "#F8F8F8",
-		"backgroundColorTop":"#FFFFFF"
+		"backgroundColorTop":"#F8F8F8"
 	}
 }

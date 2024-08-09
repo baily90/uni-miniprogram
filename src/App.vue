@@ -18,4 +18,7 @@ export default {
 <style lang="scss">
 @import '@climblee/uv-ui/theme.scss';
 @import '@climblee/uv-ui/index.scss';
+page {
+  background-color: #f8f8f8;
+}
 </style>
