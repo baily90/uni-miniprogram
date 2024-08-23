@@ -6,6 +6,11 @@
 </template>
 
 <script setup>
+import { onLoad } from '@dcloudio/uni-app'
+
+onLoad(option => {
+  console.log('user onLoad option', option)
+})
 const go = () => {
   uni.navigateTo({
     url: '/pages/index/index'

@@ -5,7 +5,7 @@
 </template>
 <script setup>
 import { ref } from 'vue'
-import { onPageScroll, onReachBottom } from '@dcloudio/uni-app'
+import { onPageScroll, onReachBottom, onShareAppMessage } from '@dcloudio/uni-app'
 import useMescroll from '@/uni_modules/mescroll-uni/hooks/useMescroll.js'
 import { apiGoods } from '@/service/home.js'
 
@@ -46,6 +46,19 @@ const upCallback = (mescroll) => {
 
 // 某些情况下手动重置列表的方法
 // getMescroll().resetUpScroll()
+
+// 测试设置分享信息
+onShareAppMessage((option) => {
+  console.log('home index onShareAppMessage option', option)
+  return {
+    title: 'this is title',
+    path: '/pages/user/index?test=111',
+    imageUrl: 'https://media.gettyimages.com/id/526705622/zh/%E7%85%A7%E7%89%87/karst-mountains-and-river-li-in-guilin-guangxi-region-of-china.jpg?s=612x612&w=0&k=20&c=2ck4uENTFhgV9ngYHUGPFIQPefBrII6Z6RU2gCQr-mE=',
+    content: 'this is content',
+    desc: 'this is desc',
+    bgImgUrl: 'https://pic.616pic.com/bg_w1180/00/00/32/kpmg3R46Q2.jpg'
+  }
+})
 </script>
 
 <style lang="scss" scoped>
