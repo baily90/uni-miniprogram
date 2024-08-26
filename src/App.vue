@@ -17,13 +17,8 @@ onLaunch(() => {
   onCheckForUpdate()
   // 检查网络状态
   onCheckNetwork()
-
-  uni.getSystemInfo({
-    success: res => {
-      system.value = res
-    }
-  })
-  capsule.value = uni.getMenuButtonBoundingClientRect()
+  // 初始化一些公共参数
+  initGlobalOptions()
 })
 onShow(() => {
   console.log('App onShow')
@@ -108,15 +103,29 @@ const onCheckNetwork = () => {
 
   uni.onNetworkStatusChange(res => {
     if (!res.isConnected) {
-      wx.showToast({
+      uni.showToast({
         title: '网络已断开',
         icon: 'loading',
         duration: 2000
       })
     } else {
-      wx.hideToast()
+      uni.hideToast()
     }
   })
+}
+
+/**
+ * 初始化系统参数
+ * system 系统信息
+ * menuButton 胶囊信息
+ */
+const initGlobalOptions = () => {
+  uni.getSystemInfo({
+    success: res => {
+      system.value = res
+    }
+  })
+  capsule.value = uni.getMenuButtonBoundingClientRect()
 }
 
 </script>
