@@ -5,7 +5,6 @@
       <text class="title" @tap="counter.increment()">{{ title }}</text>
       {{counter.count}}
     </view>
-    <BaseHeader></BaseHeader>
     <uv-swiper :list="list" keyName="image" ></uv-swiper>
     <uv-button @click="onLoginHandle">登录</uv-button>
   </view>
@@ -15,7 +14,6 @@
 import { ref } from 'vue'
 import { useCounterStore } from '@/stores/modules/counter'
 import request from '@/utils/request'
-
 const init = async () => {
   try {
     await request.get('/xxx', { a: 1 })
@@ -46,7 +44,7 @@ const onLoginHandle = () => {
   uni.login({
     provider: 'weixin',
     onlyAuthorize: true, // 微信登录仅请求授权认证
-    success: (res) => {
+    success (res) {
       const { code } = res
       console.log(code)
 
@@ -61,6 +59,15 @@ const onLoginHandle = () => {
     //     uni.setStorageSync('token', res.token)
     //   }
     // })
+    }
+  })
+  uni.getUserProfile({
+    desc: 'ceshi',
+    success (res) {
+      console.log(res)
+    },
+    fail (e) {
+      console.log(e)
     }
   })
 }

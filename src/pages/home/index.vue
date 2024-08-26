@@ -1,13 +1,25 @@
 <template>
-  <mescroll-body @init="mescrollInit" @down="downCallback" @up="upCallback">
-    首页1
+  <BaseNavbar :placeholder="false">
+    title
+    <!-- <template #left>left</template> -->
+  </BaseNavbar>
+  <mescroll-body :top="pxToRpx(navbarHeight, system.screenWidth)"  @init="mescrollInit" @down="downCallback" @up="upCallback">
+    首页{{navbarHeight}}
 	</mescroll-body>
 </template>
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { onPageScroll, onReachBottom, onShareAppMessage } from '@dcloudio/uni-app'
 import useMescroll from '@/uni_modules/mescroll-uni/hooks/useMescroll.js'
 import { apiGoods } from '@/service/home.js'
+import { useAppStore } from '@/stores/modules/app'
+import { storeToRefs } from 'pinia'
+import { pxToRpx } from '@/utils/tools.js'
+
+const appStore = useAppStore()
+const { system, capsule } = storeToRefs(appStore)
+
+const navbarHeight = computed(() => (capsule.value.top - system.value.statusBarHeight) * 2 + capsule.value.height + system.value.statusBarHeight)
 
 // 数据列表
 const goods = ref([])

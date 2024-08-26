@@ -8,8 +8,7 @@
 	@touchend="wxsBiz.touchendEvent"
 	@touchcancel="wxsBiz.touchendEvent"
 	:change:prop="wxsBiz.propObserver"
-	:prop="wxsProp"
-	>
+	:prop="wxsProp">
 		<!-- 状态栏 -->
 		<view v-if="topbar&&statusBarHeight" class="mescroll-topbar" :style="{height: statusBarHeight+'px', background: topbar}"></view>
 

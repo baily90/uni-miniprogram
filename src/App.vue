@@ -1,6 +1,11 @@
 <script setup>
 import { onLaunch, onShow, onHide } from '@dcloudio/uni-app'
 import { addRequestInterceptor, addRouterInterceptor } from '@/utils/interceptor'
+import { useAppStore } from '@/stores/modules/app'
+import { storeToRefs } from 'pinia'
+
+const appStore = useAppStore()
+const { system, capsule } = storeToRefs(appStore)
 
 onLaunch(() => {
   console.log('App Launch')
@@ -10,6 +15,13 @@ onLaunch(() => {
   addRouterInterceptor()
   // 检查小程序是否有新版本
   onCheckForUpdate()
+
+  uni.getSystemInfo({
+    success: res => {
+      system.value = res
+    }
+  })
+  capsule.value = uni.getMenuButtonBoundingClientRect()
 })
 onShow(() => {
   console.log('App onShow')

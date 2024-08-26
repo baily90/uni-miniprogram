@@ -18,7 +18,10 @@ module.exports = {
     'vue'
   ],
   globals: {
-    uni: true
+    uni: true,
+    wx: true,
+    getApp: true,
+    getCurrentPages: true
   },
   rules: {
     'no-new': 0,
