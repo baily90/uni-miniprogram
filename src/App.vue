@@ -15,6 +15,8 @@ onLaunch(() => {
   addRouterInterceptor()
   // 检查小程序是否有新版本
   onCheckForUpdate()
+  // 检查网络状态
+  onCheckNetwork()
 
   uni.getSystemInfo({
     success: res => {
@@ -85,6 +87,36 @@ const onCheckForUpdate = () => {
       content: '当前微信版本过低，可能无法使用该功能，请升级到最新版本后重试。'
     })
   }
+}
+
+/**
+ * 检测网络状态
+ */
+const onCheckNetwork = () => {
+  uni.getNetworkType({
+    success (res) {
+      const networkType = res.networkType
+      if (networkType === 'none') {
+        uni.showToast({
+          title: '当前无网络',
+          icon: 'loading',
+          duration: 2000
+        })
+      }
+    }
+  })
+
+  uni.onNetworkStatusChange(res => {
+    if (!res.isConnected) {
+      wx.showToast({
+        title: '网络已断开',
+        icon: 'loading',
+        duration: 2000
+      })
+    } else {
+      wx.hideToast()
+    }
+  })
 }
 
 </script>

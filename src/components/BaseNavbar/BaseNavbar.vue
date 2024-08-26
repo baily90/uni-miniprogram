@@ -72,6 +72,8 @@ const onBackHandle = () => {
       align-items: center;
       justify-content: center;
       transform: translateX(-50%);
+      font-size: 16px;
+      font-weight: 600;
     }
   }
 }
