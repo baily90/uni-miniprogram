@@ -35,6 +35,12 @@
 		},
 		{
 			"path": "pages/index/index"
+		},
+		{
+			"path": "pages/report/index",
+			"style": {
+				"navigationStyle": "custom"
+			}
 		}
 	],
 	"globalStyle": {
