@@ -3,7 +3,7 @@
     <view class="header" :style="{ 'height': headerHeight + 'px' }">
       <view class="left">
         <slot name="left">
-          <image v-if="isShowBackBtn" class="btn-back" src="./../../assets/icons/icon_back.png" mode="aspectFit" @click="onBackHandle"></image>
+          <image v-if="isShowBackBtn && showDefaultBack" class="btn-back" src="./../../assets/icons/icon_back.png" mode="aspectFit" @click="onBackHandle"></image>
         </slot>
       </view>
       <view class="title"><slot>商城</slot></view>
@@ -26,6 +26,10 @@ defineProps({
   background: {
     type: String,
     default: '#ffffff'
+  },
+  showDefaultBack: {
+    type: Boolean,
+    default: true
   },
   // 导航高度占位
   placeholder: {

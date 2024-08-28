@@ -22,28 +22,23 @@
 	},
 	"pages": [
 		{
-			"path": "pages/home/index",
-			"style": {
-				"navigationStyle": "custom"
-			}
+			"path": "pages/home/index"
 		},
 		{
-			"path": "pages/user/index",
-			"style": {
-				"navigationBarTitleText": "个人中心"
-			}
+			"path": "pages/user/index"
 		},
 		{
 			"path": "pages/index/index"
 		},
 		{
-			"path": "pages/report/index",
-			"style": {
-				"navigationStyle": "custom"
-			}
+			"path": "pages/report/index"
+		},
+		{
+			"path": "pages/login/index"
 		}
 	],
 	"globalStyle": {
+		"navigationStyle": "custom",
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#FFFFFF",

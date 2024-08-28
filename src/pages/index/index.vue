@@ -1,5 +1,6 @@
 <template>
   <view class="content">
+    <BaseNavbar>测试页</BaseNavbar>
     <image class="logo" src="/static/logo.png"></image>
     <view class="text-area">
       <text class="title" @tap="counter.increment()">{{ title }}</text>
@@ -27,10 +28,6 @@ const counter = useCounterStore()
 counter.count++
 
 const list = ref([{
-  image: 'https://cdn.uviewui.com/uview/resources/video.mp4',
-  title: '丙辰中秋，欢饮达旦，大醉，作此篇，兼怀子由',
-  poster: 'https://cdn.uviewui.com/uview/swiper/swiper1.png'
-}, {
   image: 'https://cdn.uviewui.com/uview/swiper/swiper1.png',
   title: '明月几时有？把酒问青天'
 }, {

@@ -1,6 +1,6 @@
 <template>
   <view class="container-user">
-    个人中心
+    <BaseNavbar>个人中心</BaseNavbar>
     <uv-button text="跳转" @click="go"></uv-button>
   </view>
 </template>

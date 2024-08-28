@@ -46,10 +46,8 @@ const requestInterceptor = {
 
 // 白名单
 const whiteList = [
-  '/', // 注意入口页必须直接写 '/'
-  { pattern: /^\/pages\/list.*/ }, // 支持正则表达式
-  '/pages/index/index',
-  { pattern: /^\/pages\/login\/*/ }
+  '/pages/login/index'
+  // { pattern: /^\/pages\/list.*/ } // 支持正则表达式
 ]
 // 路由拦截器
 const routerInterceptor = {
@@ -68,9 +66,9 @@ const routerInterceptor = {
         title: '请先登录',
         icon: 'none'
       })
-      // uni.navigateTo({
-      //   url: '/pages/login/login'
-      // })
+      uni.navigateTo({
+        url: `/pages/login/index?redirect=${encodeURIComponent(args.url)}`
+      })
       return false
     }
     return args
