@@ -1,4 +1,7 @@
 import request from '@/utils/request'
 export const apiGoods = () => {
-  return request.get('/goods')
+  return request({
+    url: '/goods',
+    method: 'get'
+  })
 }

@@ -4,43 +4,16 @@ import { storeToRefs } from 'pinia'
 // request拦截器
 const requestInterceptor = {
   // 拦截前触发
-  invoke (args) {
-    args.url = `${import.meta.env.VITE_BASE_URL}${args.url}`
-    args.header = {
-      ...args.header,
+  invoke (options) {
+    options.url = `${import.meta.env.VITE_BASE_URL}${options.url}`
+    options.header = {
+      ...options.header,
       'source-client': 'miniapp'
     }
     const { token } = storeToRefs(useAppStore())
     if (token.value) {
-      args.header.Authorization = token.value
+      options.header.Authorization = `Bear ${token.value}`
     }
-  },
-  // 成功回调拦截
-  success (args) {
-    // 处理http状态码
-    if (!args || !args.statusCode || args.statusCode !== 200) {
-      uni.showToast({
-        icon: 'none',
-        title: args.message
-      })
-      return Promise.reject(args.message || '接口异常')
-    }
-    // 处理消息码
-    if (args.data && args.data.code !== 200) {
-      uni.showToast({
-        icon: 'none',
-        title: '数据异常: ' + args.data.msg
-      })
-      return Promise.reject(args.data.msg)
-    }
-    // 返回消息
-    return Promise.resolve(args.data.data)
-  },
-  fail (err) {
-    uni.showToast({
-      icon: 'none',
-      title: '请求异常: ' + err.errMsg
-    })
   }
 }
 

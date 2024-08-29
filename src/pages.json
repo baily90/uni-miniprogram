@@ -31,9 +31,6 @@
 			"path": "pages/index/index"
 		},
 		{
-			"path": "pages/report/index"
-		},
-		{
 			"path": "pages/login/index"
 		}
 	],

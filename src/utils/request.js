@@ -1,35 +1,31 @@
-export default {
-  get (url, params) {
-    const promise = new Promise((resolve, reject) => {
-      uni.request({
-        url,
-        data: params,
-        header: {},
-        success: (res) => {
-          resolve(res)
-        },
-        fail: (err) => {
-          reject(err)
-        }
+export default (options) => new Promise((resolve, reject) => {
+  uni.request({
+    ...options,
+    success (res) {
+      if (!res || !res.statusCode || res.statusCode !== 200) {
+        uni.showToast({
+          icon: 'none',
+          title: res.message || '接口异常'
+        })
+        return reject(res.message || '接口异常')
+      }
+      // 处理消息码
+      if (res.data && res.data.code !== 200) {
+        uni.showToast({
+          icon: 'none',
+          title: res.data.msg
+        })
+        return reject(res.data.msg)
+      }
+      // 返回消息
+      return resolve(res.data.data)
+    },
+    fail (err) {
+      uni.showToast({
+        icon: 'none',
+        title: err
       })
-    })
-    return Promise.resolve(promise)
-  },
-  post (url, data) {
-    const promise = new Promise((resolve, reject) => {
-      uni.request({
-        method: 'POST',
-        url,
-        data,
-        header: {},
-        success: (res) => {
-          resolve(res)
-        },
-        fail: (err) => {
-          reject(err)
-        }
-      })
-    })
-    return Promise.resolve(promise)
-  }
-}
+      return reject(err)
+    }
+  })
+})
