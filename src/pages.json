@@ -13,7 +13,14 @@
 			"iconPath": "static/image/icon_tab_home_inactive.png",
 			"selectedIconPath": "static/image/icon_tab_home_active.png",
 			"text": "首页"
-		}, {
+		},
+		{
+			"pagePath": "pages/mall/index",
+			"iconPath": "static/image/icon_tab_home_inactive.png",
+			"selectedIconPath": "static/image/icon_tab_home_active.png",
+			"text": "商城"
+		},
+		{
 			"pagePath": "pages/user/index",
 			"iconPath": "static/image/icon_tab_user_inactive.png",
 			"selectedIconPath": "static/image/icon_tab_user_active.png",
@@ -21,18 +28,40 @@
 		}]
 	},
 	"pages": [
-		{
-			"path": "pages/home/index"
-		},
-		{
-			"path": "pages/user/index"
-		},
-		{
-			"path": "pages/index/index"
-		},
-		{
-			"path": "pages/login/index"
-		}
+		{"path": "pages/home/index"},
+
+		{"path": "pages/login/index"},
+
+		{"path": "pages/recharge/index"},
+		{"path": "pages/recharge/record"},
+		{"path": "pages/withdraw/index"},
+		{"path": "pages/withdraw/record"},
+
+		{"path": "pages/store/index"},
+		{"path": "pages/store/form"},
+		{"path": "pages/store/detail"},
+
+		{"path": "pages/visits/index"},
+		{"path": "pages/visits/detail"},
+
+		{"path": "pages/income/index"},
+
+		{"path": "pages/deliver/index"},
+		{"path": "pages/deliver/apply"},
+		{"path": "pages/deliver/detail"},
+
+		{"path": "pages/mall/index"},
+		{"path": "pages/mall/detail"},
+		{"path": "pages/mall/apply"},
+
+		{"path": "pages/user/index"},
+		{"path": "pages/order/mall"},
+		{"path": "pages/order/scan"},
+
+		{"path": "pages/patient/index"},
+		{"path": "pages/patient/detail"},
+
+		{"path": "pages/index/index"}
 	],
 	"globalStyle": {
 		"navigationStyle": "custom",
